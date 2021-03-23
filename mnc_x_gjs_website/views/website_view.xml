@@ -1,0 +1,434 @@
+<odoo>
+	<data>
+	    <!--website additional view-->
+		<record id="view_additonal_website_view" model="ir.ui.view">
+			<field name="name">Additional Website</field>
+          	<field name="model">website</field>
+          	<field name="inherit_id" ref="website.view_website_form"/>
+          	<field name="arch" type="xml">
+          	    <xpath expr="//div[@name='other']" position="after">
+                    <notebook colspan="4">
+                        <page string="Beranda" name="beranda">
+                            <group>
+                                <!--<label for="home_images"/>-->
+                                <!--<div>-->
+                                <!--  <field name="home_images" filename="home_images_fname" widget="binary"/><span>*px</span>-->
+                                <!--  <field name="home_images_fname" invisible="1"/>-->
+                                <!--</div>-->
+                                <label for="home_video"/>
+                                <div>
+                                  <field name="home_video" filename="home_video_fname" widget="binary"/>
+                                  <field name="home_video_fname" invisible="1"/>
+                                </div>
+                                <field name="home_title"/>
+                                <field name="home_detail"/>
+                                <field name="home_map"/>
+                            </group>
+                            <field name="mobilegaleryhome_ids">
+                              <tree create="true">
+                                <field name="sequence"/>
+                                <field name="mobilegaleryhome_title"/>
+                                <field name="mobilegaleryhome_images" filename="mobilegaleryhome_images_fname" widget="binary"/>
+                                <field name="mobilegaleryhome_images_fname" invisible="1"/>
+                                <field name="mobilegaleryhome_description"/>
+                              </tree>
+                            </field>
+                            <field name="certificate_ids">
+                              <tree create="true">
+                                <field name="certificate_images" filename="certificate_images_fname" widget="binary"/>
+                                <field name="certificate_images_fname" invisible="1"/>
+                                <field name="certificate_desc"/>
+                              </tree>
+                            </field>
+
+                            <!-- tambah dady awards -->
+                            <field name="awards_ids">
+                              <tree create="true">
+                                <field name="awards_images" filename="awards_images_fname" widget="binary"/>
+                                <field name="awards_images_fname" invisible="1"/>
+                              </tree>
+                            </field>
+
+                        </page>
+                        <page string="Tentang Kami" name="tentangkami">
+                            <group>
+                                <label for="aboutus_images"/>
+                                <div>
+                                  <field name="aboutus_images" filename="aboutus_images_fname" widget="binary"/><span>*px</span>
+                                  <field name="aboutus_images_fname" invisible="1"/>
+                                </div>
+                                <field name="aboutus_description"/>
+                                <field name="aboutus_visi"/>
+                                <field name="aboutus_visi_description"/>
+                                <field name="aboutus_misi"/>
+                                <field name="aboutus_misi_description"/>
+                                <field name="aboutus_client"/>
+                                <field name="aboutus_manajemen_direction_title"/>
+                                <field name="aboutus_komisaris_title"/>
+                                <field name="aboutus_direction_title"/>
+                                <field name="aboutus_structure_title"/>
+                                <label for="aboutus_structure_image"/>
+                                <div>
+                                  <field name="aboutus_structure_image" filename="aboutus_structure_image_fname" widget="binary"/><span>*px</span>
+                                  <field name="aboutus_structure_image_fname" invisible="1"/>
+                                </div>
+                                <label for="aboutus_pdf_download"/>
+                                <div>
+                                  <field name="aboutus_pdf_download" filename="aboutus_pdf_download_fname" widget="binary"/><span>pdf file</span>
+                                  <field name="aboutus_pdf_download_fname" invisible="1"/>
+                                </div>
+                            </group>
+                            <field name="ourclients_ids">
+                              <tree create="true">
+                                <field name="ourclients_images" filename="ourclients_images_fname" widget="binary"/>
+                                <field name="ourclients_images_fname" invisible="1"/>
+                              </tree>
+                            </field>
+                            <field name="manajemen_ids">
+                              <tree create="true">
+                                <field name="manajemen_title"/>
+                                <field name="manajemen_images" filename="manajemen_images_fname" widget="binary"/>
+                                <field name="manajemen_images_fname" invisible="1"/>
+                                <field name="manajemen_description"/>
+                              </tree>
+                            </field>
+                            <field name="direksi_ids">
+                              <tree create="true">
+                                <field name="direksi_title"/>
+                                <field name="direksi_images" filename="direksi_images_fname" widget="binary"/>
+                                <field name="direksi_images_fname" invisible="1"/>
+                                <field name="direksi_description"/>
+                              </tree>
+                            </field>
+                        </page>
+                        <page string="Servis Kami" name="serviskami">
+                            <field name="services_ids">
+                              <tree create="true">
+                                <field name="sequence"/>
+                                <field name="services_name"/>
+                                <field name="services_description"/>
+                                <field name="services_images" filename="services_images_fname" widget="binary"/>
+                                <field name="services_images_fname" invisible="1"/>
+                              </tree>
+                            </field>
+                        </page>
+                        <page string="Berita" name="berita">
+                            <field name="news_ids">
+                              <tree create="true">
+                                <field name="news_name"/>
+                                <field name="news_description"/>
+                                <field name="news_images" filename="news_images_fname" widget="binary"/>
+                                <field name="news_images_fname" invisible="1"/>
+                              </tree>
+                            </field>
+                        </page>
+                        <page string="Karir" name="karir">
+                            <field name="carrier_ids">
+                              <tree create="true">
+                                <field name="carrier_division"/>
+                                <field name="carrier_posisi"/>
+                                <field name="carrier_lokasi"/>
+                                <field name="carrier_kode"/>
+                              </tree>
+                            </field>
+                        </page>
+                        <page string="Kontak Kami" name="kontakkami">
+                            <group>
+                                <label for="contactus_images"/>
+                                <div>
+                                  <field name="contactus_images" filename="contactus_images_fname" widget="binary"/><span>*px</span>
+                                  <field name="contactus_images_fname" invisible="1"/>
+                                </div>
+                            </group>
+                        </page>
+                        <page string="Footer" name="footer">
+                          <group>
+                            <label for="street" string="Address"/>
+                            <div class="o_address_format">
+                                <field name="street" placeholder="Street..." class="o_address_street"/>
+                                <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                <field name="city" placeholder="City" class="o_address_city"/>
+                                <field name="state_id" class="o_address_state" placeholder="State" options="{&quot;no_open&quot;: True}"/>
+                                <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                                <field name="country_id" placeholder="Country" class="o_address_country" options="{&quot;no_open&quot;: True}"/>
+                            </div>
+                            <field name="phone"/>
+                            <field name="call_direct"/>
+                            <field name="footer_whatsapp"/>
+                            <field name="email"/>
+                            <field name="whatsapp"/>
+                            <field name="text_whatsapp"/>
+                            <field name="website_url"/>
+                            <field name="whatsapp_url" readonly="1"/>
+                          </group>
+                        </page>
+                    </notebook>
+                </xpath>              	
+          	</field>
+      	</record>	
+      	
+      	<!--Services form view-->
+        <record model="ir.ui.view" id="serviceswebsitemnc_form_view">
+          <field name="name">Services</field>
+          <field name="model">services.website.mnc</field>
+          <field name="arch" type="xml">              
+            <form>                                                 
+              <sheet>
+                <group>
+                  <group>
+                    <field name="sequence"/>
+                    <field name="services_name"/>
+                    <field name="services_description"/>
+                  </group>
+                  <group>
+                    <label for="services_images"/>
+                    <div>
+                      <field name="services_images" filename="services_images_fname" widget="binary"/><span>*px</span>
+                      <field name="services_images_fname" invisible="1"/>
+                    </div>
+                  </group>
+                </group>
+                <group string="Services Detail">
+                    <label for="services_detail_images"/>
+                    <div>
+                      <field name="services_detail_images" filename="services_detail_images_fname" widget="binary"/><span>*px</span>
+                      <field name="services_detail_images_fname" invisible="1"/>
+                    </div>
+                    <field name="services_detail_description"/>
+                    <field name="services_detail_description_2"/>
+                </group>
+                <field name="service_detail_galery">
+                  <tree create="true">
+                    <field name="sequence"/>
+                    <field name="servicesdetailgalery_images" filename="servicesdetailgalery_images_fname" widget="binary"/>
+                    <field name="servicesdetailgalery_images_fname" invisible="1"/>
+                  </tree>
+                </field>
+              </sheet>
+            </form>
+          </field>
+        </record>
+        
+        <!--News form view-->
+        <record model="ir.ui.view" id="newswebsitemnc_form_view">
+          <field name="name">News</field>
+          <field name="model">news.website.mnc</field>
+          <field name="arch" type="xml">              
+            <form>                                                 
+              <sheet>
+                <group>
+                  <group>
+                    <field name="news_name"/>
+                    <field name="news_description"/>
+                    <field name="news_home_priview"/>
+                  </group>
+                  <group>
+                    <label for="news_images"/>
+                    <div>
+                      <field name="news_images" filename="news_images_fname" widget="binary"/><span>*px</span>
+                      <field name="news_images_fname" invisible="1"/>
+                    </div>
+                  </group>
+                </group>
+                <field name="news_detail"/>
+              </sheet>
+            </form>
+          </field>
+        </record>
+        
+        <!--Ourclients form view-->
+        <record model="ir.ui.view" id="ourclientswebsitemnc_form_view">
+          <field name="name">Ourclients</field>
+          <field name="model">ourclients.website.mnc</field>
+          <field name="arch" type="xml">              
+            <form>                                                 
+              <sheet>
+                <group>
+                    <label for="ourclients_images"/>
+                    <div>
+                      <field name="ourclients_images" filename="ourclients_images_fname" widget="binary"/><span>*px</span>
+                      <field name="ourclients_images_fname" invisible="1"/>
+                    </div>
+                </group>
+              </sheet>
+            </form>
+          </field>
+        </record>
+        
+        <!--Certificate form view-->
+        <record model="ir.ui.view" id="certificatewebsitemnc_form_view">
+          <field name="name">Certificate</field>
+          <field name="model">certificate.website.mnc</field>
+          <field name="arch" type="xml">              
+            <form>                                                 
+              <sheet>
+                    <group>
+                        <label for="certificate_images"/>
+                        <div>
+                          <field name="certificate_images" filename="certificate_images_fname" widget="binary"/><span>*px</span>
+                          <field name="certificate_images_fname" invisible="1"/>
+                           
+                        </div>
+                        <label for="certificate_desc"/>
+                        <div>
+                          <field name="certificate_desc" />
+                        </div>
+                    </group>
+              </sheet>
+            </form>
+          </field>
+        </record>
+        
+        <!--Carrier form view-->
+        <record model="ir.ui.view" id="carrierwebsitemnc_form_view">
+          <field name="name">Carrier</field>
+          <field name="model">carrier.website.mnc</field>
+          <field name="arch" type="xml">              
+            <form>                                                 
+                <sheet>
+                    <group>
+                        <field name="carrier_division"/>
+                        <field name="carrier_posisi"/>
+                        <field name="carrier_lokasi"/>
+                        <field name="carrier_kode"/>
+                    </group>
+                    <field name="carrier_detail"/>
+                </sheet>
+            </form>
+          </field>
+        </record>
+        
+        <!--servicesdetailgalery form view-->
+        <record model="ir.ui.view" id="servicesdetailgalerywebsitemnc_form_view">
+          <field name="name">servicesdetailgalery</field>
+          <field name="model">servicesdetailgalery.website.mnc</field>
+          <field name="arch" type="xml">              
+            <form>                                                 
+              <sheet>
+                    <group>
+                        <field name="sequence"/>
+                        <label for="servicesdetailgalery_images"/>
+                        <div>
+                          <field name="servicesdetailgalery_images" filename="servicesdetailgalery_images_fname" widget="binary"/><span>*px</span>
+                          <field name="servicesdetailgalery_images_fname" invisible="1"/>
+                        </div>
+                    </group>
+              </sheet>
+            </form>
+          </field>
+        </record>
+        
+        
+        <!--mobilegaleryhome form view-->
+        <record model="ir.ui.view" id="mobilegaleryhomewebsitemnc_form_view">
+          <field name="name">mobilegaleryhome</field>
+          <field name="model">mobilegaleryhome.website.mnc</field>
+          <field name="arch" type="xml">              
+            <form>                                                 
+              <sheet>
+                    <group>
+                        <field name="sequence"/>
+                        <label for="mobilegaleryhome_images"/>
+                        <div>
+                          <field name="mobilegaleryhome_images" filename="mobilegaleryhome_images_fname" widget="binary"/><span>*px</span>
+                          <field name="mobilegaleryhome_images_fname" invisible="1"/>
+                        </div>
+                        <field name="mobilegaleryhome_title"/>
+                        <field name="mobilegaleryhome_description"/>
+                        <field name="mobilegaleryhome_images_url" invisible="1"/>
+                    </group>
+              </sheet>
+            </form>
+          </field>
+        </record>
+        
+        <!--manajemen form view-->
+        <record model="ir.ui.view" id="manajemenwebsitemnc_form_view">
+          <field name="name">manajemen</field>
+          <field name="model">manajemen.website.mnc</field>
+          <field name="arch" type="xml">              
+            <form>                                                 
+              <sheet>
+                    <group>
+                        <label for="manajemen_images"/>
+                        <div>
+                          <field name="manajemen_images" filename="manajemen_images_fname" widget="binary"/><span>236x354*px</span>
+                          <field name="manajemen_images_fname" invisible="1"/>
+                        </div>
+                        <field name="manajemen_title"/>
+                        <field name="manajemen_subtitle"/>
+                        <field name="manajemen_description"/>
+                    </group>
+              </sheet>
+            </form>
+          </field>
+        </record>
+         
+        <!--direksi form view-->
+        <record model="ir.ui.view" id="direksiwebsitemnc_form_view">
+          <field name="name">direksi</field>
+          <field name="model">direksi.website.mnc</field>
+          <field name="arch" type="xml">              
+            <form>                                                 
+              <sheet>
+                    <group>
+                        <label for="direksi_images"/>
+                        <div>
+                          <field name="direksi_images" filename="direksi_images_fname" widget="binary"/><span>236x354*px</span>
+                          <field name="direksi_images_fname" invisible="1"/>
+                        </div>
+                        <field name="direksi_title"/>
+                        <field name="direksi_subtitle"/>
+                        <field name="direksi_description"/>
+                    </group>
+              </sheet>
+            </form>
+          </field>
+        </record>
+        
+        
+        
+        
+        
+        
+        <!--layout website xml-->
+        <template id="services_detail" name="Services Detail">
+            <t t-call="website.layout">
+              <t t-set="pageName" t-value="'services_detail'"/>
+              <div id="wrap" class="oe_structure">
+                <section class="bg-200">
+                    <div class="container">
+                        <span t-esc="name"/>
+                    </div>
+                </section>
+              </div>
+            </t>
+        </template>
+        
+        <template id="news_detail" name="News Detail">
+            <t t-call="website.layout">
+              <t t-set="pageName" t-value="'news_detail'"/>
+              <div id="wrap" class="oe_structure">
+                <section class="bg-200">
+                    <div class="container">
+                        <span t-esc="name"/>
+                    </div>
+                </section>
+              </div>
+            </t>
+        </template>
+        
+        <template id="carrier_detail" name="Carrier Detail">
+            <t t-call="website.layout">
+              <t t-set="pageName" t-value="'carrier_detail'"/>
+              <div id="wrap" class="oe_structure">
+                <section class="bg-200">
+                    <div class="container">
+                        <span t-esc="name"/>
+                    </div>
+                </section>
+              </div>
+            </t>
+        </template>
+	</data>
+</odoo>

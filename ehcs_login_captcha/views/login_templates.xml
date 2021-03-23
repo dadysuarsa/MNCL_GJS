@@ -1,0 +1,35 @@
+<odoo>
+    <template id="login_recaptch" inherit_id="web.login">
+        <div class="form-group field-password" position="after">
+            <center>
+                <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
+                <script>
+                function recaptchaCallback() {
+                    $('#submitBtn').removeAttr('disabled');
+                    console.log("Checkbox checked..!")
+                    };
+                </script>
+                <div class="g-recaptcha" data-sitekey="6LdmFd0UAAAAAM4MDFKIzdI_SHO2bJGOzVjJGcm5" data-callback="recaptchaCallback" />
+                <br></br>
+            </center>
+            <!-- <xpath expr="//button[@type='submit']" position="replace">
+                <div class="justify-content-between mt-2 d-flex small">
+                    <a t-if="signup_enabled" t-attf-href="/web/signup?{{ keep_query() }}">Don't have an account?</a>
+                    <a t-if="reset_password_enabled" t-attf-href="/web/reset_password?{{ keep_query() }}">Reset Password</a>
+                </div>
+                <br/>
+            </xpath> -->
+            <button type="submit" class="btn btn-primary btn-block" style="height:35px;width:100%" disabled="True" id="submitBtn" value="Submit"> Submit
+            </button>
+        </div>
+
+        <div t-attf-class="clearfix oe_login_buttons text-center mb-1 {{'pt-2' if form_small else 'pt-3'}}" position="replace">
+            <!-- <input type="submit" class="btn btn-primary btn-block"  disabled="True" id="submitBtn" value="Submit" /> -->
+            <br/>
+            <t t-if="debug">
+                <button type="submit" name="redirect" value="/web/become" class="btn btn-link btn-sm btn-block">Log in as superuser</button>
+            </t>
+            <div class="o_login_auth"/>
+        </div>
+    </template>
+</odoo>
